@@ -1,0 +1,43 @@
+<div class="block">
+  <h1 class="page-header top">
+    <%= @group_name %>
+  </h1>
+  <div class="top links">
+    <a phx-click="add_task">Add Task</a>
+    <br>
+    <a phx-click="redirect_to_groups">All Groups</a>
+  </div>
+</div>
+
+<div class="group-divider"></div>
+<%= if @tasks ==[] do %>
+  <h1 class="nothing">
+    Nothing here.
+    <br> 
+    Please add tasks to continue.
+  </h1>
+<% end %>
+  
+<%= for task <- @tasks do %>
+  <div class="task">
+    <%= if TasksHelper.check_locked(task.id) do %>
+      <div class="task">
+        <img src="/images/locked.svg" alt="">
+        <h3><%= task.name %></h3>
+      </div>
+    <% else %>
+      <div class="task ">
+        <%= if task.completed do %>
+          <img phx-click="change_status" phx-value-completed="false" phx-value-task_id={task.id} src="/images/completed.svg" alt="">
+          <h3 class="completed-task"><%= task.name %></h3>
+        <% else %>
+          <img phx-click="change_status" phx-value-completed="true" phx-value-task_id={task.id} src="/images/incomplete.svg" alt="">
+          <h3><%= task.name %></h3>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="group-divider"></div>
+<% end %>   
+  
+    

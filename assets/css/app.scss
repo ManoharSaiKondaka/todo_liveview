@@ -1,0 +1,220 @@
+/* This file is for your main application css. */
+@import "./phoenix.css";
+
+/* LiveView specific classes for your customizations */
+.phx-no-feedback.invalid-feedback,
+.phx-no-feedback .invalid-feedback {
+  display: none;
+}
+
+.phx-click-loading {
+  opacity: 0.5;
+  transition: opacity 1s ease-out;
+}
+
+.phx-disconnected{
+  cursor: wait;
+}
+.phx-disconnected *{
+  pointer-events: none;
+}
+
+.phx-modal {
+  opacity: 1!important;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.phx-modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.phx-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.phx-modal-close:hover,
+.phx-modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Alerts and form errors */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-info {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.alert-warning {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert p {
+  margin-bottom: 0;
+}
+.alert:empty {
+  display: none;
+}
+.invalid-feedback {
+  color: #a94442;
+  display: block;
+  margin: -1rem 0 2rem;
+}
+
+.group-divider {
+  border-bottom: 1px solid #000;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  opacity: 20%; }
+
+.group-container {
+  display: flex;
+  align-items: center;
+  /* Adjust margin, padding, and other styles as needed */ }
+
+.group-container img {
+  margin-right: 50px;
+  width: 15px;
+  height: 15px; }
+
+.group-details {
+  display: flex;
+  flex-direction: column; }
+
+.group-title {
+  margin-top: 30px;
+  margin-bottom: 1px; }
+
+.group-description {
+  opacity: 0.3;
+  margin-top: 1px;
+  padding-top: 1; }
+
+.things-to-do {
+  opacity: 70%; }
+
+  .page-header.top {
+    display: inline-block;
+    vertical-align: middle;
+    opacity: 70%;
+  }
+  
+  .top {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 30px;
+    margin-bottom: 1px;
+  }
+
+  .block {
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .links {
+    margin-right: 0px;
+  }
+  .task {
+    display: flex;
+    align-items: center;
+  }
+
+  .task img {
+    margin-right: 30px; 
+    width: 25px;
+  }
+
+  .task h3 {
+    margin: 0; 
+    opacity: 0.7;
+  }
+
+  .task {
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .completed-task {
+    text-decoration: line-through;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    z-index: 1;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .dropdown-label {
+    display: inline-block;
+    padding: 8px 30px 8px 16px; 
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    position: relative;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    top: 50%;
+    right: 8px; 
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-top: 8px solid #2f2f2f; 
+  }
+
+  .save-button {
+    position: absolute;
+    bottom: -60px; 
+    right: 20px; 
+  }
+
+  .page {
+    max-width: 900px;
+  }
+
+  .nothing {
+    opacity: 50%;
+  }

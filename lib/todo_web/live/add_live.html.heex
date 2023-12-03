@@ -1,0 +1,54 @@
+<div class="page">
+  <div class="block">
+    <h1 class="page-header top">
+      Add Groups and Tasks
+    </h1>
+    <div class="top links">
+      <a phx-click="redirect_to_groups">All Groups</a>
+      <%= if !is_nil(@group_name) do %>
+        <br>
+        <a phx-click="redirect_to_tasks">Back</a>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="group-divider"></div>
+  <.form let={f} for={:task} phx-change="validate" phx-submit="form_submit">
+      <label >Group Name</label>
+      <%= if is_nil(@group_name) do%>
+        <div>
+          <%= text_input f, :group_name, phx_update: :ignore %>
+        </div>
+      <% else %>
+        <div>
+          <%= text_input f, :group_name, value: @group_name, disabled: true %>
+        </div>
+      <% end %>
+        <label>Task Name</label> 
+        <div>
+          <%= text_input f, :task_name,  phx_update: :ignore %>
+        </div>
+        
+      <%= cond do %>  
+        <% length(@tasks)>0 -> %>
+            <div class="dropdown">
+              <div phx-click="show_dependency"> 
+                <label class="dropdown-label" > Add Dependency </label>
+                <span class="dropdown-arrow"></span>
+              </div>
+              <div class="dropdown-content">
+                <%= for task <- @tasks do %>
+                  <label>
+                    <input id="depends_on" type="checkbox" name="depend_on[]" value={task.id} phx_update="ignore" >
+                    <%= task.name %>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+        <% true -> %>
+      <% end %> 
+      <div class="save-button">
+          <button type="submit">Save</button>
+      </div>
+  </.form>
+</div>

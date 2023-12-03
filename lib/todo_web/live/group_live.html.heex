@@ -1,0 +1,30 @@
+<div class="block">
+  <h1 class="page-header top">
+    Things To Do
+  </h1>
+  <div class="top links" phx-click="add_group">
+    <a type="submit">Add Group</a>
+  </div>
+</div>
+<div class="group-divider"></div>
+<%= if @groups ==[] do %>
+  <h1 class="nothing">
+    Nothing here.
+    <br> 
+    Please add groups to continue.
+  </h1>
+<% end %>
+<%= for group <- @groups do %>
+  <div class="group-container" phx-click="open_group" phx-value-group_id={group.id} phx-value-group_name={group.name} >
+    <img src="/images/group.svg" alt="">
+    <div class="group-details">
+      <h3 class="group-title">
+        <%= group.name %>
+      </h3>
+      <h4 class="group-description">
+        <%= group.tasks_completed %> OF <%= group.total_no_of_tasks %> TASKS COMPLETE
+      </h4>
+    </div>
+  </div>
+  <div class="group-divider"></div>
+<% end %>
